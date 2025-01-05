@@ -20,7 +20,7 @@ VALUES
     ('Massive Rasengan', 'None', 'Ninjutsu', 60, 'Close', '1 action', 'A larger and more destructive version of the Rasengan.'),
     ('Super Multi-Size Jutsu', 'None', 'Ninjutsu', 80, 'Self', '1 action', 'Further enhances body size for unparalleled power.'),
     ('Multi-Size Jutsu', 'Yang', 'Ninjutsu', 50, 'Close', '1 action', 'Expands the entire body for increased strength and defense.'),
-    ('Partial Expansion Jutsu', 'None', 'Ninjutsu', 30, 'Close', '1 action', 'Expands a single body part for powerful melee attacks.');
+    ('Partial Expansion Jutsu', 'None', 'Ninjutsu', 30, 'Close', '1 action', z'Expands a single body part for powerful melee attacks.');
 
 -- Advanced forms of Rasengan infused with nature releases
 INSERT INTO Jutsus (Name, NatureRelease, Type, Cost, Perimeter, CastingTime, Description)
