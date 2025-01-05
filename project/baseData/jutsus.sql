@@ -33,12 +33,6 @@ VALUES
     ('Tailed Beast Bomb Rasenshuriken', 'Various', 'Ninjutsu', 120, 'Long', '1 action', 'A fusion of the Rasenshuriken and Tailed Beast Bomb, amplifying its explosive power.'),
     ('Massive Rasenshuriken', 'Wind', 'Ninjutsu', 80, 'Long', '1 action', 'An enhanced Rasenshuriken with greater size and destructive force.');
 
-INSERT INTO Jutsus (Name, NatureRelease, Type, Cost, Perimeter, CastingTime, Description)
-VALUES
-    -- 4.1. Senjutsu Techniques
-
-
-    -- 4.2. Sage Modes
 
 
 -- 4. Insert Sage Mode Abilities
