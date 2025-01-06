@@ -1,51 +1,40 @@
--- ================================================
--- =========== Ninja Database Schema =============
--- ================================================
+START TRANSACTION;
 
--- Optionally, create and use a specific database
--- Uncomment the following lines if you want to create a new database
--- CREATE DATABASE NinjaDB;
--- USE NinjaDB;
 
--- ============================================================
--- ================ Utility Tables ============================
--- ============================================================
-
--- 1. ItemTypes Table
 CREATE TABLE ItemTypes (
     ItemTypeID INT PRIMARY KEY AUTO_INCREMENT,
     TypeName VARCHAR(20) NOT NULL UNIQUE
 );
 
--- 2. ProficiencyTypes Table
+
 CREATE TABLE ProficiencyTypes (
     ProficiencyTypeID INT PRIMARY KEY AUTO_INCREMENT,
     ProficiencyName VARCHAR(50) NOT NULL UNIQUE
 );
 
--- ============================================================
--- ================ Core Tables ===============================
--- ============================================================
 
--- 3. Classes Table
+
+
+
+
 CREATE TABLE Classes (
     ClassID INT PRIMARY KEY AUTO_INCREMENT,
     ClassName VARCHAR(50) NOT NULL UNIQUE
 );
 
--- 4. Clans Table
+
 CREATE TABLE Clans (
     ClanID INT PRIMARY KEY AUTO_INCREMENT,
     ClanName VARCHAR(50) NOT NULL UNIQUE
 );
 
--- 5. Ranks Table
+
 CREATE TABLE Ranks (
     RankID INT PRIMARY KEY AUTO_INCREMENT,
     RankName VARCHAR(50) NOT NULL UNIQUE
 );
 
--- 6. Characters Table
+
 CREATE TABLE Characters (
     CharacterID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(50) NOT NULL UNIQUE,
@@ -60,7 +49,7 @@ CREATE TABLE Characters (
     FOREIGN KEY (RankID) REFERENCES Ranks(RankID) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
--- 7. Familiars Table
+
 CREATE TABLE Familiars (
     FamiliarID INT PRIMARY KEY AUTO_INCREMENT,
     CharacterID INT,
@@ -68,7 +57,7 @@ CREATE TABLE Familiars (
     FOREIGN KEY (CharacterID) REFERENCES Characters(CharacterID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 8. Attributes Table
+
 CREATE TABLE Attributes (
     AttributeID INT PRIMARY KEY AUTO_INCREMENT,
     CharacterID INT UNIQUE,
@@ -87,7 +76,7 @@ CREATE TABLE Attributes (
     FOREIGN KEY (CharacterID) REFERENCES Characters(CharacterID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 9. CharacterProficiencies Table
+
 CREATE TABLE CharacterProficiencies (
     CharacterID INT,
     ProficiencyTypeID INT,
@@ -97,7 +86,7 @@ CREATE TABLE CharacterProficiencies (
     FOREIGN KEY (ProficiencyTypeID) REFERENCES ProficiencyTypes(ProficiencyTypeID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 10. Inventory Table
+
 CREATE TABLE Inventory (
     InventoryID INT PRIMARY KEY AUTO_INCREMENT,
     CharacterID INT UNIQUE,
@@ -105,11 +94,11 @@ CREATE TABLE Inventory (
     FOREIGN KEY (CharacterID) REFERENCES Characters(CharacterID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- ============================================================
--- ================ Item Management ===========================
--- ============================================================
 
--- 11. Items Table
+
+
+
+
 CREATE TABLE Items (
     ItemID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(50) NOT NULL UNIQUE,
@@ -119,7 +108,7 @@ CREATE TABLE Items (
     FOREIGN KEY (ItemTypeID) REFERENCES ItemTypes(ItemTypeID) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
--- 12. NinjaTools Table
+
 CREATE TABLE NinjaTools (
     NinjaToolID INT PRIMARY KEY AUTO_INCREMENT,
     ItemID INT UNIQUE,
@@ -129,7 +118,7 @@ CREATE TABLE NinjaTools (
     FOREIGN KEY (ItemID) REFERENCES Items(ItemID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 13. Scrolls Table
+
 CREATE TABLE Scrolls (
     ScrollID INT PRIMARY KEY AUTO_INCREMENT,
     ItemID INT UNIQUE,
@@ -137,7 +126,7 @@ CREATE TABLE Scrolls (
     FOREIGN KEY (ItemID) REFERENCES Items(ItemID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 14. InventorySlots Table
+
 CREATE TABLE InventorySlots (
     SlotID INT PRIMARY KEY AUTO_INCREMENT,
     InventoryID INT,
@@ -147,11 +136,11 @@ CREATE TABLE InventorySlots (
     FOREIGN KEY (ItemID) REFERENCES Items(ItemID) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
--- ============================================================
--- ================ Techniques and Abilities =================
--- ============================================================
 
--- 15. KekkeiGenkai Table
+
+
+
+
 CREATE TABLE KekkeiGenkai (
     KekkeiGenkaiID INT PRIMARY KEY AUTO_INCREMENT,
     Type ENUM('Dōjutsu', 'Nature Release', 'Kekkei Genkai') NOT NULL,
@@ -160,7 +149,7 @@ CREATE TABLE KekkeiGenkai (
     Description TEXT
 );
 
--- 16. CharacterKekkeiGenkai Table
+
 CREATE TABLE CharacterKekkeiGenkai (
     CharacterID INT,
     KekkeiGenkaiID INT,
@@ -171,7 +160,7 @@ CREATE TABLE CharacterKekkeiGenkai (
     FOREIGN KEY (KekkeiGenkaiID) REFERENCES KekkeiGenkai(KekkeiGenkaiID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 17. Jutsus Table
+
 CREATE TABLE Jutsus (
     JutsuID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100) NOT NULL UNIQUE,
@@ -183,7 +172,7 @@ CREATE TABLE Jutsus (
     Description TEXT
 );
 
--- 18. CharacterJutsus Table
+
 CREATE TABLE CharacterJutsus (
     CharacterID INT,
     JutsuID INT,
@@ -192,20 +181,11 @@ CREATE TABLE CharacterJutsus (
     FOREIGN KEY (JutsuID) REFERENCES Jutsus(JutsuID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 19. KekkeiGenkaiJutsus Table
-CREATE TABLE KekkeiGenkaiJutsus (
-    KekkeiGenkaiID INT,
-    JutsuID INT,
-    PRIMARY KEY (KekkeiGenkaiID, JutsuID),
-    FOREIGN KEY (KekkeiGenkaiID) REFERENCES KekkeiGenkai(KekkeiGenkaiID) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (JutsuID) REFERENCES Jutsus(JutsuID) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
--- ============================================================
--- ================ Specialized Tables =========================
--- ============================================================
 
--- 20. SealedBeasts Table
+
+
+
 CREATE TABLE SealedBeasts (
     SealedBeastID INT PRIMARY KEY AUTO_INCREMENT,
     CharacterID INT UNIQUE,
@@ -216,7 +196,7 @@ CREATE TABLE SealedBeasts (
     FOREIGN KEY (CharacterID) REFERENCES Characters(CharacterID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- 21. StatusBars Table
+
 CREATE TABLE StatusBars (
     StatusBarID INT PRIMARY KEY AUTO_INCREMENT,
     CharacterID INT UNIQUE,
@@ -233,3 +213,4 @@ CREATE TABLE StatusBars (
 
 
 
+COMMIT;

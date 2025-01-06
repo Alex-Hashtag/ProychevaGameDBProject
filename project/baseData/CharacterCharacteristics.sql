@@ -1,3 +1,5 @@
+START TRANSACTION;
+
 INSERT INTO Clans (ClanName)
 VALUES
     ('Aburame'),
@@ -44,25 +46,25 @@ VALUES
     ('Yoimura');
     
     
-    INSERT INTO Classes (ClassID, ClassName) VALUES
-        ('Ninjutsu Specialist'),
-        ('Taijutsu Specialist'),
-        ('Genjutsu Specialist'),
-        ('Elemental Specialist'),
-        ('Sealing Specialist'),
-        ('Reconnaissance'),
-        ('Swordsman'),
-        ('Weapons Artisan'),
-        ('Medic'),
-        ('Puppeteer'),
-        ('Sensor'),
-        ('Tactician'),
-        ('Animalist'),
-        ('Demolitionist'),
-        ('Tracker'),
-        ('Brawler'),
-        ('Wild Tamer'),
-        ('Conjuror');
+INSERT INTO Classes (ClassName) VALUES
+    ('Ninjutsu Specialist'),
+    ('Taijutsu Specialist'),
+    ('Genjutsu Specialist'),
+    ('Elemental Specialist'),
+    ('Sealing Specialist'),
+    ('Reconnaissance'),
+    ('Swordsman'),
+    ('Weapons Artisan'),
+    ('Medic'),
+    ('Puppeteer'),
+    ('Sensor'),
+    ('Tactician'),
+    ('Animalist'),
+    ('Demolitionist'),
+    ('Tracker'),
+    ('Brawler'),
+    ('Wild Tamer'),
+    ('Conjuror');
 
 INSERT INTO ProficiencyTypes (ProficiencyName)
 VALUES
@@ -91,10 +93,11 @@ VALUES
     ('Fuinjutsu');
 
 
-    INSERT INTO Ranks (RankID, RankName) VALUES
-        (1, 'Academy Student'),
-        (2, 'Genin'),
-        (3, 'Chunin'),
-        (4, 'Jonin'),
-        (5, 'Anbu'),
-        (6, 'Kage');
+    INSERT INTO Ranks (RankName) VALUES
+        ('Academy Student'),
+        ('Genin'),
+        ('Chunin'),
+        ('Jonin'),
+        ('Anbu'),
+        ('Kage');
+COMMIT;
