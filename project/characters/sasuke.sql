@@ -45,7 +45,14 @@ VALUES
     (@SasukeID, 18, 'Advanced'),      
     (@SasukeID, 19, 'Advanced'),      
     (@SasukeID, 20, 'Expert'),        
-    (@SasukeID, 21, 'Advanced');      
+    (@SasukeID, 21, 'Advanced');
+
+
+INSERT INTO CharacterKekkeiGenkai (CharacterID, KekkeiGenkaiID, Proficiency, MasteryLevel) VALUES
+    (@SasukeID, 7, TRUE, 'Master'),
+    (@SasukeID, 8, TRUE, 'Master'),
+    (@SasukeID, 9, TRUE, 'Master'),
+    (@SasukeID, 10, TRUE, 'Master');
 
 
 INSERT INTO Inventory (CharacterID, Ryo)

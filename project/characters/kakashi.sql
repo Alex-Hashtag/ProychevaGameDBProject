@@ -48,6 +48,10 @@ VALUES
     (@KakashiID, 21, 'Advanced');      
 
 
+INSERT INTO CharacterKekkeiGenkai (CharacterID, KekkeiGenkaiID, Proficiency, MasteryLevel) VALUES
+    (@KakashiID, 7, TRUE, 'Expert'),
+    (@KakashiID, 8, TRUE, 'Adept');
+
 INSERT INTO Inventory (CharacterID, Ryo)
 VALUES (@KakashiID, 1500);  
 
