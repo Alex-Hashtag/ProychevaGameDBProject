@@ -224,12 +224,12 @@ INSERT INTO StatusBars
 VALUES
     (
         @NarutoID,
-        250,     
-        250,     
+        250,
+        250,
         0,       
         300.00,  
         500,     
-        100.00,  
+        100.00,
         200,     
         0        
     );

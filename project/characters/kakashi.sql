@@ -9,7 +9,7 @@ START TRANSACTION;
 INSERT INTO Characters
 (Name, Age, Gender, Alignment, ClassID, ClanID, RankID)
 VALUES
-    ('Kakashi Hatake', 30, 'Male', 'Good', 1, 37, 4);
+    ('Kakashi Hatake', 34, 'Male', 'Good', 1, 8, 5);
 
 
 
@@ -163,6 +163,20 @@ INSERT INTO CharacterJutsus (CharacterID, JutsuID) VALUES
                                                        (@KakashiID, 351);  
 
 
-
+INSERT INTO StatusBars
+(CharacterID, CurrentHitPoints, MaxHitPoints, TemporaryHitPoints,
+ CurrentChakra, MaxChakra, CurrentNatureEnergy, MaxNatureEnergy, DeathSaves)
+VALUES
+    (
+        @KakashiID,
+        220,
+        220,
+        0,
+        300.00,
+        500,
+        50.00,
+        200,
+        0
+    );
 
 COMMIT;
