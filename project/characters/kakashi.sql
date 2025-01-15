@@ -9,7 +9,7 @@ START TRANSACTION;
 INSERT INTO Characters
 (Name, Age, Gender, Alignment, ClassID, ClanID, RankID)
 VALUES
-    ('Kakashi Hatake', 34, 'Male', 'Good', 1, 8, 5);
+    ('Kakashi Hatake', 34, 'Male', 'Good', 1, 8, 6);
 
 
 

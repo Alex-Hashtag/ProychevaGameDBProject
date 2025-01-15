@@ -57,8 +57,8 @@ WHERE
 
 -- Update a character’s rank:
 UPDATE Characters
-SET RankID = (SELECT RankID FROM Ranks WHERE RankName = 'Chunin') -- Replace with desired rank
-WHERE Name = 'Sakura Haruno'; -- Replace with the character's name
+SET RankID = (SELECT RankID FROM Ranks WHERE RankName = 'Kage') -- Replace with desired rank
+WHERE Name = 'Kakashi Hatake'; -- Replace with the character's name
 
 -- Update inventory Ryo for a character:
 UPDATE Inventory
@@ -100,3 +100,7 @@ FROM
     Characters
 INNER JOIN Attributes ON Characters.CharacterID = Attributes.CharacterID;
 
+
+-- Find the avarage chakra of your characters
+SELECT AVG(Chakra)
+FROM Attributes

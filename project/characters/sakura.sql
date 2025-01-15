@@ -4,7 +4,7 @@ START TRANSACTION;
 INSERT INTO Characters
 (Name, Age, Gender, Alignment, ClassID, ClanID, RankID)
 VALUES
-    ('Sakura Haruno', 21, 'Female', 'Good', 2, 38, 4);
+    ('Sakura Haruno', 21, 'Female', 'Good', 2, 8, 4);
 
 
 
